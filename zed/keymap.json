@@ -1,0 +1,132 @@
+[
+    {
+        "bindings": {
+            "cmd-l": "workspace::ActivatePaneRight",
+            "cmd-h": "workspace::ActivatePaneLeft",
+            "cmd-j": "workspace::ActivatePaneDown",
+            "cmd-k": "workspace::ActivatePaneUp",
+            "cmd-t": "workspace::NewTerminal",
+            "ctrl-j": "menu::SelectNext",
+            "ctrl-k": "menu::SelectPrevious"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "ctrl-k": [
+                "workspace::SendKeystrokes",
+                "Up"
+            ],
+            "ctrl-j": [
+                "workspace::SendKeystrokes",
+                "Down"
+            ]
+        }
+    },
+    {
+        // I had to add this here because it seems like setting them to null doesn't
+        // really does anything. Duplicating the workspace panel focus works.
+        "context": "(VimControl || (!Editor && !Terminal))",
+        "use_key_equivalents": true,
+        "bindings": {
+            "ctrl-w i": "terminal_panel::ToggleFocus",
+            "space o": "project_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+            "o": "project_panel::Open",
+            "y": "project_panel::Copy",
+            "x": "project_panel::Cut",
+            "p": "project_panel::Paste",
+            "d": "project_panel::Delete",
+            "r": "project_panel::Rename",
+            "a": "project_panel::NewFile",
+            "A": "project_panel::NewDirectory"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == insert",
+        "bindings": {
+            "j k": "vim::NormalBefore"
+        }
+    },
+    {
+        "context": "vim_mode == insert && showing_completions",
+        "bindings": {
+            "alt-h": "menu::SelectNext",
+            "alt-l": "menu::SelectPrevious"
+        }
+    },
+    {
+        "context": "vim_mode == normal && !menu",
+        "bindings": {
+            "space k": "zed::OpenKeymap",
+            "space f": "file_finder::Toggle",
+            "space w": "workspace::Save",
+            "space c w": "pane::CloseActiveItem",
+            "space c o": "pane::CloseOtherItems",
+            "space /": "editor::ToggleComments",
+            "space l f": "editor::Format",
+            "space l a": "editor::ToggleCodeActions",
+            "space l r": "editor::Rename",
+            "space n": "buffer_search::Dismiss",
+            "alt-h": "pane::ActivatePreviousItem",
+            "alt-l": "pane::ActivateNextItem",
+            "space o": "project_panel::ToggleFocus",
+            "shift-alt-j": [
+                "workspace::SendKeystrokes",
+                "y y p"
+            ],
+            "shift-alt-k": [
+                "workspace::SendKeystrokes",
+                "y y shift-p"
+            ],
+            "shift-l": [
+                "workspace::SendKeystrokes",
+                "l $"
+            ],
+            "shift-h": [
+                "workspace::SendKeystrokes",
+                "h ^"
+            ],
+            // "cmd-h": "project_panel::ToggleFocus",
+            "alt-j": "editor::MoveLineDown",
+            "alt-k": "editor::MoveLineUp",
+            "g d": "editor::GoToDefinition"
+        }
+    },
+    {
+        "context": "vim_mode == visual && !menu",
+        "bindings": {
+            "shift-l": [
+                "workspace::SendKeystrokes",
+                "l $"
+            ],
+            "shift-h": [
+                "workspace::SendKeystrokes",
+                "h ^"
+            ],
+            // "cmd-h": "project_panel::ToggleFocus",
+            "alt-j": "editor::MoveLineDown",
+            "alt-k": "editor::MoveLineUp",
+            "g d": "editor::GoToDefinition"
+        }
+    }
+]
+// [
+//   {
+//     "bindings": {
+//       "space k": "zed::OpenKeymap",
+//       "cmd-p": "file_finder::Toggle",
+//       "shift shift": "vim::FindCommand"
+//     }
+//   },
+//   {
+//     "context": "ProjectPanel && not_editing",
+//     "bindings": {
+//       "o": "project_panel::Open"
+//     }
+//   }
+// ]
