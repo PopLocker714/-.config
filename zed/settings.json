@@ -7,6 +7,43 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+    "language_models": {
+        "openai_compatible": {
+            "omniroute": {
+                "api_url": "https://remnabotvpn.mooo.com/v1",
+                "available_models": [
+                    {
+                        "name": "kr/claude-sonnet-4.5",
+                        "max_tokens": 200000,
+                        "max_output_tokens": 32000,
+                        "max_completion_tokens": 200000,
+                        "capabilities": {
+                            "tools": true,
+                            "images": false,
+                            "parallel_tool_calls": false,
+                            "prompt_cache_key": false,
+                            "chat_completions": true,
+                            "interleaved_reasoning": false
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "buffer_font_weight": 400.0,
+    "terminal": {
+        "font_size": 22.0
+    },
+    "cli_default_open_behavior": "new_window",
+    "outline_panel": {
+        "dock": "left"
+    },
+    "collaboration_panel": {
+        "dock": "left"
+    },
+    "git_panel": {
+        "dock": "left"
+    },
     "icon_theme": "Material Icon Theme",
     "edit_predictions": {
         "provider": "zed",
@@ -67,9 +104,10 @@
         },
     },
     "tab_size": 4,
-    "auto_indent": true,
+    "auto_indent": "syntax_aware",
     "hard_tabs": false,
     "agent": {
+        "dock": "right",
         "tool_permissions": {
             "default": "allow"
         },
@@ -99,12 +137,12 @@
         "quick_actions": false,
         // "code_actions": true
     },
-    "theme": "GitHub Dark Tritanopia",
+    "theme": "One Dark",
     "ui_font_family": "InconsolataGo Nerd Font Mono",
     "buffer_font_family": "InconsolataGo Nerd Font Mono",
     "vim_mode": true,
-    "ui_font_size": 26,
-    "buffer_font_size": 26,
+    "ui_font_size": 22.0,
+    "buffer_font_size": 20.0,
     "cursor_blink": false,
     "show_edit_predictions": false,
     "relative_line_numbers": "disabled",
